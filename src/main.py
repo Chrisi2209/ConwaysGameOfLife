@@ -5,7 +5,7 @@ def start_game():
     """
     starts the game
     """
-
+    
     setup_pygame()
     run = True
     while run:
