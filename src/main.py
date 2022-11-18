@@ -1,12 +1,14 @@
 import pygame
 from camera import Camera
+from grid import Grid
 
 def start_game():
     """
     starts the game
     """
-    
+
     setup_pygame()
+    grid = setup_gameboard()
     run = True
     while run:
         for event in pygame.event.get():
@@ -16,14 +18,19 @@ def start_game():
                     pygame.quit()
                     
                 case pygame.MOUSEBUTTONDOWN:
-                    print(event.pos)
-                    print(event.button)
                     if event.button == 1:
                         print(f"clicked on {event.pos}")
 
+                case pygame.MOUSEWHEEL:
+                    if event.y == -1:
+                        print("Mausrad runter")
+                    else:
+                        print("Mausrad rauf")
+
 
 def setup_gameboard():
-    cells = []
+    grid = Grid(50, 50, (1000, 1000))
+    return grid
     
 
 def setup_pygame():

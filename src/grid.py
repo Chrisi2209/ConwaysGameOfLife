@@ -17,6 +17,9 @@ class Grid:
             for x in range(self._grid.shape[0]):
                 yield (x * self._width, y * self._height, self._width, self._height)
 
+    def get_shape(self):
+        return self._grid.shape
+
     def get_cell(self, x, y):
         return self._grid[x, y]
 
