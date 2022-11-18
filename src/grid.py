@@ -17,6 +17,8 @@ class Grid:
             for x in range(self._grid.shape[0]):
                 yield (x * self._width, y * self._height, self._width, self._height)
 
+    def draw_grid(self, window, camera)
+
     def get_shape(self):
         return self._grid.shape
 

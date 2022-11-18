@@ -2,6 +2,13 @@ import pygame
 from camera import Camera
 from grid import Grid
 
+WINDOW_FORMAT = 16/9
+SCALE_FACTOR = 1
+WINDOW_WIDTH = 1080 * SCALE_FACTOR
+WINDOW_HEIGHT = WINDOW_WIDTH * (1 / WINDOW_FORMAT)
+
+VISIBLE_ROWS_OF_CELLS_AT_START = 10
+
 def start_game():
     """
     starts the game
@@ -29,7 +36,11 @@ def start_game():
 
 
 def setup_gameboard():
-    grid = Grid(50, 50, (1000, 1000))
+    grid = Grid(
+        WINDOW_HEIGHT/VISIBLE_ROWS_OF_CELLS_AT_START * SCALE_FACTOR,
+        WINDOW_HEIGHT/VISIBLE_ROWS_OF_CELLS_AT_START * SCALE_FACTOR,
+        (1000, 1000),
+    )
     return grid
     
 
@@ -38,13 +49,9 @@ def setup_pygame():
     WINDOW = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
     pygame.display.set_caption("Conways game of life")
 
-    clock = pygame.time.Clock()
-    clock.tick(FRAMERATE)
-    print(clock)
     rectangle3 = pygame.Rect(10, 30, 50, 70)
     pygame.draw.rect(WINDOW, (123, 221, 123), rectangle3)
     pygame.display.flip()
-    print(clock)
 
     return WINDOW
 
@@ -52,8 +59,4 @@ def main():
     start_game()
 
 if __name__ == "__main__":
-    WINDOW_WIDTH = 1024
-    WINDOW_HEIGHT = 820
-
-    FRAMERATE = 60
     main()
