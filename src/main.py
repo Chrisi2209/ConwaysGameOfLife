@@ -1,4 +1,5 @@
 import pygame
+from camera import Camera
 
 def start_game():
     """
@@ -47,9 +48,5 @@ if __name__ == "__main__":
     WINDOW_WIDTH = 1024
     WINDOW_HEIGHT = 820
 
-    CAMERA_ZOOM = 1
-    CAMERA_OFFSET = [0, 0]
-
     FRAMERATE = 60
     main()
-
