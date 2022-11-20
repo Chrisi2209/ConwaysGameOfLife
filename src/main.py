@@ -14,8 +14,9 @@ def start_game():
     starts the game
     """
 
-    setup_pygame()
-    grid = setup_gameboard()
+    WINDOW = setup_pygame()
+    grid, CAMERA = setup_gameboard()
+    grid.draw_grid(WINDOW, CAMERA)
     run = True
     while run:
         for event in pygame.event.get():
@@ -41,7 +42,8 @@ def setup_gameboard():
         WINDOW_HEIGHT/VISIBLE_ROWS_OF_CELLS_AT_START * SCALE_FACTOR,
         (1000, 1000),
     )
-    return grid
+    camera = Camera()
+    return grid, camera
     
 
 def setup_pygame():

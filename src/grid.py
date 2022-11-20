@@ -1,13 +1,9 @@
-import numpy as np
+import os as np
 
-class Grid:
-    def __init__(self, width, height, shape):
-        self._width = width
-        self._height = height
         self._grid = np.zeros(shape, dtype=np.bool_)
 
 
-    def gen_all_cells(self):
+    def gen_all_cell_coors(self):
         """
         Yields all the coordinates for the squares in a tuple.
         Beginning from top left and going left to right, when the row is finished,
@@ -17,7 +13,16 @@ class Grid:
             for x in range(self._grid.shape[0]):
                 yield (x * self._width, y * self._height, self._width, self._height)
 
-    def draw_grid(self, window, camera)
+    def gen_all_lines(self):
+        pass
+
+    def draw_grid(self, window, camera):
+        camera._zoom_factor
+        """
+        for i in range(self._grid.shape[0] * self._grid.shape[1]):
+            rect = self.gen_all_cell_coors()
+            print(f"{i}/{self._grid.shape[0] * self._grid.shape[1]}")
+        """
 
     def get_shape(self):
         return self._grid.shape
@@ -28,8 +33,8 @@ class Grid:
     def toggle_cell(self, x, y):
         self._grid[x, y] = not self._grid[x, y]
 
-    def get_density(self):
-        return self._density
+    def get_width(self):
+        return self._width
 
-    def get_size(self):
-        return self._density
+    def get_height(self):
+        return self._height
